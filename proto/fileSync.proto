@@ -1,0 +1,38 @@
+syntax = "proto3";
+package fileSync;
+
+option java_package = "com.tiny.fileSync";
+
+///////////////////////
+//proto for file sync
+///////////////////////
+
+//message for file sync request
+message FileSyncReq {
+    string subDir = 1;
+    string fileName = 2;
+    int64 fileSize = 3;
+    bytes fileContent = 4;
+    bool isBinary = 5;
+}
+
+//message for file remove request
+message FileRemoveReq {
+    string subDir = 1;
+    string fileName = 2;
+}
+
+//message for file sync response
+message FileSyncResp {
+  bool success = 1;
+}
+
+//define service
+service FileSyncService {
+    //file remove
+    rpc FileRemove(FileRemoveReq) returns (FileSyncResp);
+
+    //file sync
+    rpc FileSync(FileSyncReq) returns (FileSyncResp);
+}
+
