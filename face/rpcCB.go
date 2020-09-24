@@ -60,12 +60,17 @@ func (f *IRpcCB) DirSync(
 	if in.IsRemove {
 		//remove
 		_, err = os.Stat(subDirFull)
-		isExists := os.IsExist(err)
-		if isExists {
+		if err == nil {
 			err = os.Remove(subDirFull)
 		}else{
-			err = nil
+			isExists := os.IsExist(err)
+			if isExists {
+				err = os.Remove(subDirFull)
+			}else{
+				err = nil
+			}
 		}
+
 	}else{
 		//add or rename
 		if in.NewSubDir != "" {

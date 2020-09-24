@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7b019e9-b34e-4ad5-a7e9-724a7d1228a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/face/rpcCB.go" beforeDir="false" afterPath="$PROJECT_DIR$/face/rpcCB.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/face/rpcCB.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+            <state relative-caret-position="325">
+              <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -47,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/example/client.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="635">
-              <caret line="132" column="12" lean-forward="true" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
+              <caret line="132" column="12" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
               <folding>
                 <element signature="e#14#151#0" expanded="true" />
               </folding>
@@ -425,7 +424,7 @@
     <entry file="file://$PROJECT_DIR$/example/client.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="635">
-          <caret line="132" column="12" lean-forward="true" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
+          <caret line="132" column="12" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
           <folding>
             <element signature="e#14#151#0" expanded="true" />
           </folding>
@@ -434,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/face/rpcCB.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+        <state relative-caret-position="325">
+          <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
         </state>
       </provider>
     </entry>
