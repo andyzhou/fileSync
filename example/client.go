@@ -112,7 +112,7 @@ func simpleSync(service iface.ISync) {
 	fmt.Println("file simpleSync result:", bRet)
 }
 
-//set callback
+//set callback for succeed
 func cb(subDir, fileName string) {
 	fmt.Println("cb, subDir:", subDir, ", fileName:", fileName)
 }
