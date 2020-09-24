@@ -8,6 +8,7 @@ import (
 	fileSync "github.com/andyzhou/fileSync/pb"
 	"log"
 	"os"
+	"strings"
 )
 
 /*
@@ -55,6 +56,7 @@ func (f *IRpcCB) DirSync(
 
 	//dir opt for local
 	subDirFull := fmt.Sprintf("%s/%s", f.rootPath, in.SubDir)
+	subDirFull = strings.ReplaceAll(subDirFull, "//", "/")
 	if in.IsRemove {
 		//remove
 		_, err = os.Stat(subDirFull)
