@@ -45,6 +45,7 @@ func (f *Manager) Quit() {
 func (f *Manager) FileRemove(
 					subDir string,
 					fileName string,
+					cb func(subDir, fileName string),
 				) bool {
 	//basic check
 	if subDir == "" || fileName == "" {
@@ -61,7 +62,14 @@ func (f *Manager) FileRemove(
 		if !ok {
 			return false
 		}
-		client.FileRemove(subDir, fileName)
+		bRet := client.FileRemove(subDir, fileName)
+		if !bRet {
+			return false
+		}
+		//run callback
+		if cb != nil {
+			cb(subDir, fileName)
+		}
 		return true
 	}
 	f.clients.Range(sf)
@@ -72,6 +80,7 @@ func (f *Manager) FileRemove(
 //file sync to all clients
 func (f *Manager) FileSync(
 					req *fileSync.FileSyncReq,
+					cb func(subDir, fileName string),
 				) bool {
 	//basic check
 	if req == nil {
@@ -88,7 +97,14 @@ func (f *Manager) FileSync(
 		if !ok {
 			return false
 		}
-		client.FileSync(req)
+		bRet := client.FileSync(req)
+		if !bRet {
+			return false
+		}
+		//run call back
+		if cb != nil {
+			cb(req.SubDir, req.FileName)
+		}
 		return true
 	}
 	f.clients.Range(sf)

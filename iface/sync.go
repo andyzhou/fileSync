@@ -9,9 +9,9 @@ import fileSync "github.com/andyzhou/fileSync/pb"
  */
 
 type ISync interface {
-	FileRemove(subDir string, fileName string) bool
-	FileSync(req *fileSync.FileSyncReq) bool
-	FileDirectSync(orgFile string, destSubDir string) bool
+	FileRemove(subDir string, fileName string, cb func(subDir, fileName string)) bool
+	FileSync(req *fileSync.FileSyncReq, cb func(subDir, fileName string)) bool
+	FileDirectSync(orgFile string, destSubDir string, cb func(subDir, fileName string)) bool
 	ReadFile(filePath string) *fileSync.FileSyncReq
 	AddNode(addr string) bool
 	GetManager() IManager

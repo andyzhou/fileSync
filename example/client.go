@@ -91,7 +91,7 @@ func fileTesting(service iface.ISync) {
 //direct sync
 func directSync(service iface.ISync) {
 	fileFullPath := fmt.Sprintf("%s/%s", FileSrcPath, FileName)
-	bRet := service.FileDirectSync(fileFullPath, SubDir)
+	bRet := service.FileDirectSync(fileFullPath, SubDir, cb)
 	fmt.Println("file directSync result:", bRet)
 }
 
@@ -108,7 +108,11 @@ func simpleSync(service iface.ISync) {
 	fileSyncObj.SubDir = SubDir
 
 	//file sync
-	bRet := service.FileSync(fileSyncObj)
+	bRet := service.FileSync(fileSyncObj, cb)
 	fmt.Println("file simpleSync result:", bRet)
 }
 
+//set callback
+func cb(subDir, fileName string) {
+	fmt.Println("cb, subDir:", subDir, ", fileName:", fileName)
+}

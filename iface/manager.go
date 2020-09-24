@@ -12,8 +12,8 @@ type IManager interface {
 	Quit()
 
 	//for file sync and remove
-	FileRemove(subDir, fileName string) bool
-	FileSync(req *fileSync.FileSyncReq) bool
+	FileRemove(subDir, fileName string, cb func(subDir, fileName string)) bool
+	FileSync(req *fileSync.FileSyncReq, cb func(subDir, fileName string)) bool
 
 	//for rpc node
 	RemoveNode(addr string) bool

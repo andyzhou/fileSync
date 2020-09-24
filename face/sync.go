@@ -44,14 +44,16 @@ func (f *Sync) Quit() {
 func (f *Sync) FileRemove(
 					subDir string,
 					fileName string,
+					cb func(subDir, fileName string),
 				) bool {
-	return f.manager.FileRemove(subDir, fileName)
+	return f.manager.FileRemove(subDir, fileName, cb)
 }
 
 //file direct sync into batch node
 func (f *Sync) FileDirectSync(
 					orgFile string,
 					destSubDir string,
+					cb func(subDir, fileName string),
 				) bool {
 	//basic check
 	if orgFile == "" {
@@ -67,14 +69,16 @@ func (f *Sync) FileDirectSync(
 	//set dest sub dir
 	fileSyncObj.SubDir = destSubDir
 
-	return f.manager.FileSync(fileSyncObj)
+	return f.manager.FileSync(fileSyncObj, cb)
 }
 
 //file sync into batch node
+//cb for success
 func (f *Sync) FileSync(
 					req *fileSync.FileSyncReq,
+					cb func(subDir, fileName string),
 				) bool {
-	return f.manager.FileSync(req)
+	return f.manager.FileSync(req, cb)
 }
 
 //add rpc node
