@@ -3,6 +3,9 @@ package face
 import (
 	"github.com/andyzhou/fileSync/iface"
 	fileSync "github.com/andyzhou/fileSync/pb"
+	"io/ioutil"
+	"log"
+	"strings"
 )
 
 /*
@@ -45,6 +48,28 @@ func (f *Sync) FileRemove(
 	return f.manager.FileRemove(subDir, fileName)
 }
 
+//file direct sync into batch node
+func (f *Sync) FileDirectSync(
+					orgFile string,
+					destSubDir string,
+				) bool {
+	//basic check
+	if orgFile == "" {
+		return false
+	}
+
+	//try read file
+	fileSyncObj := f.ReadFile(orgFile)
+	if fileSyncObj == nil {
+		return false
+	}
+
+	//set dest sub dir
+	fileSyncObj.SubDir = destSubDir
+
+	return f.manager.FileSync(fileSyncObj)
+}
+
 //file sync into batch node
 func (f *Sync) FileSync(
 					req *fileSync.FileSyncReq,
@@ -62,4 +87,41 @@ func (f *Sync) AddNode(
 //get manager face
 func (f *Sync) GetManager() iface.IManager {
 	return f.manager
+}
+
+//read original file
+func (f *Sync) ReadFile(
+					filePath string,
+				) *fileSync.FileSyncReq {
+	//basic check
+	if filePath == "" {
+		return nil
+	}
+
+	//get file name
+	tempSlice := strings.Split(filePath, "/")
+	if tempSlice == nil || len(tempSlice) <= 0 {
+		return nil
+	}
+
+	tempLen := len(tempSlice)
+	fileName := tempSlice[tempLen - 1]
+	if fileName == "" {
+		return nil
+	}
+
+	//try read file
+	byteData, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		log.Println("readFile failed, err:", err.Error())
+		return nil
+	}
+
+	//format result
+	result := &fileSync.FileSyncReq{
+		FileName:fileName,
+		FileSize:int64(len(byteData)),
+		FileContent:byteData,
+	}
+	return result
 }

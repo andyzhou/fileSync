@@ -13,7 +13,6 @@ message FileSyncReq {
     string fileName = 2;
     int64 fileSize = 3;
     bytes fileContent = 4;
-    bool isBinary = 5;
 }
 
 //message for file remove request
