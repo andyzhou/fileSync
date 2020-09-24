@@ -45,7 +45,7 @@ func (f *Sync) DirSync(
 				subDir string,
 				newSubDir string,
 				isRemove bool,
-				cb func(subDir string, isRemove bool),
+				cb func(subDir, newSubDir string, isRemove bool),
 			) bool {
 	return f.manager.DirSync(subDir, newSubDir, isRemove, cb)
 }

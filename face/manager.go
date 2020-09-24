@@ -46,7 +46,7 @@ func (f *Manager) DirSync(
 					subDir string,
 					newSubDir string,
 					isRemove bool,
-					cb func(subDir string, isRemove bool),
+					cb func(subDir, newSubDir string, isRemove bool),
 				) bool {
 	//basic check
 	if subDir == "" {
@@ -69,7 +69,7 @@ func (f *Manager) DirSync(
 		}
 		//run callback
 		if cb != nil {
-			cb(subDir, isRemove)
+			cb(subDir, newSubDir, isRemove)
 		}
 		return true
 	}

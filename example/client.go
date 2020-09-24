@@ -126,8 +126,8 @@ func simpleSync(service iface.ISync) {
 }
 
 //set callback for succeed
-func cbForDir(subDir string, isRemove bool) {
-	fmt.Println("cbForDir, subDir:", subDir, ", isRemove:", isRemove)
+func cbForDir(subDir, newSubDir string, isRemove bool) {
+	fmt.Println("cbForDir, subDir:", subDir, ", newSubDir:", newSubDir, ", isRemove:", isRemove)
 }
 
 func cbForFile(subDir, fileName string) {
