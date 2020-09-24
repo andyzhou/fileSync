@@ -21,17 +21,30 @@ message FileRemoveReq {
     string fileName = 2;
 }
 
-//message for file sync response
-message FileSyncResp {
+//message for sync response
+message SyncResp {
   bool success = 1;
+}
+
+///////////////////////
+//proto for dir sync
+///////////////////////
+
+//message for dir sync request
+message DirSyncReq {
+    string subDir = 1;
+    bool isRemove = 2;
 }
 
 //define service
 service FileSyncService {
     //file remove
-    rpc FileRemove(FileRemoveReq) returns (FileSyncResp);
+    rpc FileRemove(FileRemoveReq) returns (SyncResp);
 
     //file sync
-    rpc FileSync(FileSyncReq) returns (FileSyncResp);
+    rpc FileSync(FileSyncReq) returns (SyncResp);
+
+    //dir sync
+    rpc DirSync(DirSyncReq) returns(SyncResp);
 }
 

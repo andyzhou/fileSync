@@ -21,6 +21,7 @@ type Client struct {
 	addr string
 	conn *grpc.ClientConn //rpc client connect
 	client *fileSync.FileSyncServiceClient //rpc client
+	dirSyncChan chan fileSync.DirSyncReq
 	fileSyncChan chan fileSync.FileSyncReq
 	fileRemoveChan chan fileSync.FileRemoveReq
 	closeChan chan bool
@@ -32,6 +33,7 @@ func NewClient(addr string) *Client {
 	//self init
 	this := &Client{
 		addr:addr,
+		dirSyncChan:make(chan fileSync.DirSyncReq, define.ReqChanSize),
 		fileSyncChan:make(chan fileSync.FileSyncReq, define.ReqChanSize),
 		fileRemoveChan:make(chan fileSync.FileRemoveReq, define.ReqChanSize),
 		closeChan:make(chan bool, 1),
@@ -52,6 +54,37 @@ func (f *Client) Quit() {
 }
 
 //call api
+func (f *Client) DirSync(
+					subDir string,
+					isRemove bool,
+				) (bRet bool) {
+	//basic check
+	if subDir == "" || f.client == nil {
+		bRet = false
+		return
+	}
+
+	//try catch panic
+	defer func() {
+		if err := recover(); err != nil {
+			log.Println("Client::DirSync panic, err:", err)
+			bRet = false
+			return
+		}
+	}()
+
+	//init request
+	req := fileSync.DirSyncReq{
+		SubDir:subDir,
+		IsRemove:isRemove,
+	}
+
+	//send to chan
+	f.dirSyncChan <- req
+	bRet = true
+	return
+}
+
 func (f *Client) FileRemove(
 					subDir string,
 					fileName string,
@@ -118,6 +151,7 @@ func (f *Client) runMainProcess() {
 		ticker = time.NewTicker(time.Second * define.ClientCheckTicker)
 		syncReq fileSync.FileSyncReq
 		removeReq fileSync.FileRemoveReq
+		dirReq fileSync.DirSyncReq
 		isOk, needQuit bool
 	)
 
@@ -135,6 +169,10 @@ func (f *Client) runMainProcess() {
 			if isOk {
 				f.fileRemoveProcess(&removeReq)
 			}
+		case dirReq, isOk = <- f.dirSyncChan://dir sync req
+			if isOk {
+				f.dirSyncProcess(&dirReq)
+			}
 		case <- ticker.C://check status
 			{
 				f.ping()
@@ -147,7 +185,30 @@ func (f *Client) runMainProcess() {
 	//close chan
 	close(f.fileSyncChan)
 	close(f.fileRemoveChan)
+	close(f.dirSyncChan)
 	close(f.closeChan)
+}
+
+//dir sync for rpc server
+func (f *Client) dirSyncProcess(
+					req *fileSync.DirSyncReq,
+				) bool {
+	if req == nil {
+		return false
+	}
+
+	//call dir sync api
+	resp, err := (*f.client).DirSync(
+		context.Background(),
+		req,
+	)
+
+	if err != nil {
+		log.Println("Client::dirSyncProcess failed, err:", err.Error())
+		return false
+	}
+
+	return resp.Success
 }
 
 //file remove from rpc server

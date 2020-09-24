@@ -3,8 +3,11 @@ package face
 import (
 	"context"
 	"errors"
+	"fmt"
 	"github.com/andyzhou/fileSync/iface"
 	fileSync "github.com/andyzhou/fileSync/pb"
+	"log"
+	"os"
 )
 
 /*
@@ -35,11 +38,50 @@ func NewIRpcCB(
 //call backs for rpc
 /////////////////////
 
+//dir sync
+func (f *IRpcCB) DirSync(
+					ctx context.Context,
+					in *fileSync.DirSyncReq,
+				) (*fileSync.SyncResp, error) {
+	var (
+		err error
+		bRet bool
+	)
+
+	//check input value
+	if in == nil {
+		return nil, errors.New("invalid parameter")
+	}
+
+	//dir opt for local
+	subDirFull := fmt.Sprintf("%s/%s", f.rootPath, in.SubDir)
+	if in.IsRemove {
+		//remove
+		err = os.Remove(subDirFull)
+	}else{
+		//add
+		err = os.Mkdir(subDirFull, 0777)
+	}
+
+	if err != nil {
+		log.Println("IRpcCB::DirSync failed, err:", err.Error())
+		bRet = false
+	}else{
+		bRet = true
+	}
+
+	//format result
+	result := &fileSync.SyncResp{
+		Success:bRet,
+	}
+	return result, nil
+}
+
 //file remove
 func (f *IRpcCB) FileRemove(
 					ctx context.Context,
 					in *fileSync.FileRemoveReq,
-				) (*fileSync.FileSyncResp, error) {
+				) (*fileSync.SyncResp, error) {
 	//check input value
 	if in == nil {
 		return nil, errors.New("invalid parameter")
@@ -49,7 +91,7 @@ func (f *IRpcCB) FileRemove(
 	f.file.RemoveFile(f.rootPath, in.SubDir, in.FileName)
 
 	//format result
-	result := &fileSync.FileSyncResp{
+	result := &fileSync.SyncResp{
 		Success:true,
 	}
 	return result, nil
@@ -59,7 +101,7 @@ func (f *IRpcCB) FileRemove(
 func (f *IRpcCB) FileSync(
 					ctx context.Context,
 					in *fileSync.FileSyncReq,
-				) (*fileSync.FileSyncResp, error) {
+				) (*fileSync.SyncResp, error) {
 	//check input value
 	if in == nil {
 		return nil, errors.New("invalid parameter")
@@ -69,7 +111,7 @@ func (f *IRpcCB) FileSync(
 	f.file.SaveFile(f.rootPath, in)
 
 	//format result
-	result := &fileSync.FileSyncResp{
+	result := &fileSync.SyncResp{
 		Success:true,
 	}
 	return result, nil

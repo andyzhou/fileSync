@@ -11,6 +11,9 @@ import fileSync "github.com/andyzhou/fileSync/pb"
 type IManager interface {
 	Quit()
 
+	//for dir sync
+	DirSync(subDir string, isRemove bool, cb func(subDir string, isRemove bool)) bool
+
 	//for file sync and remove
 	FileRemove(subDir, fileName string, cb func(subDir, fileName string)) bool
 	FileSync(req *fileSync.FileSyncReq, cb func(subDir, fileName string)) bool

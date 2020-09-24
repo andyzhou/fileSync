@@ -12,13 +12,17 @@ import (
  */
 
 type IRpcCB interface {
+	DirSync(
+		ctx context.Context,
+		in *fileSync.DirSyncReq,
+	) (*fileSync.SyncResp, error)
 	FileRemove(
 		ctx context.Context,
 		in *fileSync.FileRemoveReq,
-	) (*fileSync.FileSyncResp, error)
+	) (*fileSync.SyncResp, error)
 	FileSync(
 		ctx context.Context,
 		in *fileSync.FileSyncReq,
-	) (*fileSync.FileSyncResp, error)
+	) (*fileSync.SyncResp, error)
 }
 

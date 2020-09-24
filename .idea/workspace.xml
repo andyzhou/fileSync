@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7b019e9-b34e-4ad5-a7e9-724a7d1228a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/face/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face/manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/face/manager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face/rpcCB.go" beforeDir="false" afterPath="$PROJECT_DIR$/face/rpcCB.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face/sync.go" beforeDir="false" afterPath="$PROJECT_DIR$/face/sync.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iface/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iface/manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/manager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iface/rpcCB.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/rpcCB.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iface/sync.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/sync.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pb/fileSync.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pb/fileSync.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/fileSync.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/fileSync.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/fileSync.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/fileSync.proto" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +27,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face/manager.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
+            <state relative-caret-position="544">
               <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
               <folding>
                 <element signature="n#!!block;n#Quit#0" />
+                <element signature="e#594#599#0" />
                 <element signature="n#!!block;n#FileRemove#0" />
                 <element signature="n#!!block;n#FileSync#0" />
                 <element signature="n#!!block;n#RemoveNode#0" />
@@ -31,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face/rpc.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+            <state relative-caret-position="799">
+              <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
               <folding>
                 <element signature="n#!!block;n#Stop#0" />
                 <element signature="n#!!block;n#start#0" />
@@ -44,14 +57,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/face/rpcCB.go">
+        <entry file="file://$PROJECT_DIR$/iface/rpc.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/client.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="373">
+              <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
               <folding>
-                <element signature="e#14#127#0" expanded="true" />
-                <element signature="n#!!block;n#FileRemove#0" />
-                <element signature="n#!!block;n#FileSync#0" />
+                <element signature="n#!!block;n#main#1" />
               </folding>
             </state>
           </provider>
@@ -60,13 +76,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face/sync.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+            <state relative-caret-position="512">
+              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
               <folding>
-                <element signature="e#14#106#0" expanded="true" />
                 <element signature="n#!!block;n#FileDirectSync#0" />
-                <element signature="n#!!block;n#readFile#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iface/client.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -75,25 +98,21 @@
         <entry file="file://$PROJECT_DIR$/iface/manager.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="72" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
+              <caret line="14" column="85" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/iface/rpc.go">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face/client.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-251">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="292">
+              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
               <folding>
+                <element signature="n#!!block;n#DirSync#0" />
                 <element signature="n#!!block;n#FileRemove#0" />
                 <element signature="n#!!block;n#FileSync#0" />
-                <element signature="n#!!block;n#runMainProcess#0" />
+                <element signature="e#3326#3331#0" />
                 <element signature="n#!!block;n#fileRemoveProcess#0" />
                 <element signature="n#!!block;n#fileSyncProcess#0" />
                 <element signature="n#!!block;n#ping#0" />
@@ -104,38 +123,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/client.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
-              <folding>
-                <element signature="n#!!block;n#main#1" />
-                <element signature="n#!!block;n#simpleSync#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/face/file.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-              <folding>
-                <element signature="n#!!block;n#RemoveFile#0" />
-                <element signature="n#!!block;n#SaveFile#0" />
-                <element signature="n#!!block;n#checkOrCreateDir#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/iface/sync.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+            <state relative-caret-position="187">
+              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iface/rpcCB.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#15#80#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,6 +157,7 @@
     <findStrings>
       <find>FileRemoveR</find>
       <find>tiny</find>
+      <find>Mkdir</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -163,18 +168,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/iface/client.go" />
-        <option value="$PROJECT_DIR$/iface/rpcCB.go" />
         <option value="$PROJECT_DIR$/iface/file.go" />
         <option value="$PROJECT_DIR$/face/file.go" />
-        <option value="$PROJECT_DIR$/face/client.go" />
         <option value="$PROJECT_DIR$/face/rpc.go" />
-        <option value="$PROJECT_DIR$/face/rpcCB.go" />
         <option value="$PROJECT_DIR$/proto/fileSync.proto" />
+        <option value="$PROJECT_DIR$/face/rpcCB.go" />
+        <option value="$PROJECT_DIR$/iface/client.go" />
+        <option value="$PROJECT_DIR$/face/client.go" />
         <option value="$PROJECT_DIR$/iface/sync.go" />
-        <option value="$PROJECT_DIR$/face/sync.go" />
         <option value="$PROJECT_DIR$/iface/manager.go" />
         <option value="$PROJECT_DIR$/face/manager.go" />
+        <option value="$PROJECT_DIR$/iface/rpcCB.go" />
+        <option value="$PROJECT_DIR$/face/sync.go" />
         <option value="$PROJECT_DIR$/example/client.go" />
       </list>
     </option>
@@ -190,9 +195,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2384" />
+    <option name="x" value="1962" />
     <option name="y" value="-277" />
-    <option name="width" value="976" />
+    <option name="width" value="913" />
     <option name="height" value="1138" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -219,6 +224,16 @@
               <item name="fileSync" type="b2602c69:ProjectViewProjectNode" />
               <item name="fileSync" type="462c0819:PsiDirectoryNode" />
               <item name="face" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fileSync" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fileSync" type="462c0819:PsiDirectoryNode" />
+              <item name="iface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fileSync" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fileSync" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -264,16 +279,16 @@
     </configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2384" y="-277" width="976" height="1138" extended-state="0" />
+    <frame x="1962" y="-277" width="913" height="1138" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17237687" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17221585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.18164437" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.21797323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -295,16 +310,6 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="51">
-            <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proto/fileSync.pb.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -317,20 +322,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/face/base.go" />
     <entry file="file://$PROJECT_DIR$/face/service.go" />
-    <entry file="file://$PROJECT_DIR$/proto/fileSync.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iface/client.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iface/file.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -338,81 +329,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iface/rpcCB.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="37" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="e#15#80#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="323">
+            <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iface/rpc.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iface/sync.go">
+    <entry file="file://$PROJECT_DIR$/proto/fileSync.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iface/manager.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="72" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face/sync.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#106#0" expanded="true" />
-            <element signature="n#!!block;n#FileDirectSync#0" />
-            <element signature="n#!!block;n#readFile#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face/rpcCB.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#14#127#0" expanded="true" />
-            <element signature="n#!!block;n#FileRemove#0" />
-            <element signature="n#!!block;n#FileSync#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face/rpc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!block;n#Stop#0" />
-            <element signature="n#!!block;n#start#0" />
-            <element signature="n#!!block;n#beginService#0" />
-            <element signature="n#!!block;n#createService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face/manager.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!block;n#Quit#0" />
-            <element signature="n#!!block;n#FileRemove#0" />
-            <element signature="n#!!block;n#FileSync#0" />
-            <element signature="n#!!block;n#RemoveNode#0" />
-            <element signature="n#!!block;n#AddNode#0" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -428,14 +358,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/face/rpcCB.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+          <folding>
+            <element signature="e#14#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iface/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/face/client.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-251">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="292">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
           <folding>
+            <element signature="n#!!block;n#DirSync#0" />
             <element signature="n#!!block;n#FileRemove#0" />
             <element signature="n#!!block;n#FileSync#0" />
-            <element signature="n#!!block;n#runMainProcess#0" />
+            <element signature="e#3326#3331#0" />
             <element signature="n#!!block;n#fileRemoveProcess#0" />
             <element signature="n#!!block;n#fileSyncProcess#0" />
             <element signature="n#!!block;n#ping#0" />
@@ -445,13 +393,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/iface/manager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="85" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face/manager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#Quit#0" />
+            <element signature="e#594#599#0" />
+            <element signature="n#!!block;n#FileRemove#0" />
+            <element signature="n#!!block;n#FileSync#0" />
+            <element signature="n#!!block;n#RemoveNode#0" />
+            <element signature="n#!!block;n#AddNode#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face/rpc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!block;n#Stop#0" />
+            <element signature="n#!!block;n#start#0" />
+            <element signature="n#!!block;n#beginService#0" />
+            <element signature="n#!!block;n#createService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iface/sync.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iface/rpcCB.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#15#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iface/rpc.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face/sync.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!block;n#FileDirectSync#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/client.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
+        <state relative-caret-position="373">
+          <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
           <folding>
             <element signature="n#!!block;n#main#1" />
-            <element signature="n#!!block;n#simpleSync#0" />
           </folding>
         </state>
       </provider>

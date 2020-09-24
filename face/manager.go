@@ -41,6 +41,43 @@ func (f *Manager) Quit() {
 	f.clients.Range(sf)
 }
 
+//dir sync for all clients
+func (f *Manager) DirSync(
+					subDir string,
+					isRemove bool,
+					cb func(subDir string, isRemove bool),
+				) bool {
+	//basic check
+	if subDir == "" {
+		return false
+	}
+
+	if f.clients == nil {
+		return false
+	}
+
+	//do doc sync on all clients
+	sf := func(k, v interface{}) bool {
+		client, ok := v.(*Client)
+		if !ok {
+			return false
+		}
+		bRet := client.DirSync(subDir, isRemove)
+		if !bRet {
+			return false
+		}
+		//run callback
+		if cb != nil {
+			cb(subDir, isRemove)
+		}
+		return true
+	}
+	f.clients.Range(sf)
+
+	return true
+}
+
+
 //file remove from all clients
 func (f *Manager) FileRemove(
 					subDir string,

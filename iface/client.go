@@ -10,6 +10,7 @@ import fileSync "github.com/andyzhou/fileSync/pb"
 
 type IClient interface {
 	Quit()
+	DirSync(subDir string, isRemove bool) bool
 	FileRemove(subDir, fileName string) bool
 	FileSync(req *fileSync.FileSyncReq) bool
 }

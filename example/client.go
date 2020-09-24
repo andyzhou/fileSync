@@ -86,12 +86,25 @@ func fileTesting(service iface.ISync) {
 
 	//direct sync
 	directSync(service)
+
+	//dir sync
+	dirSync(service)
 }
+
+//dir sync
+func dirSync(service iface.ISync) {
+	subDir := "t2"
+	isRemove := true
+
+	bRet := service.DirSync(subDir, isRemove, cbForDir)
+	fmt.Println("dir sync result:", bRet)
+}
+
 
 //direct sync
 func directSync(service iface.ISync) {
 	fileFullPath := fmt.Sprintf("%s/%s", FileSrcPath, FileName)
-	bRet := service.FileDirectSync(fileFullPath, SubDir, cb)
+	bRet := service.FileDirectSync(fileFullPath, SubDir, cbForFile)
 	fmt.Println("file directSync result:", bRet)
 }
 
@@ -108,11 +121,15 @@ func simpleSync(service iface.ISync) {
 	fileSyncObj.SubDir = SubDir
 
 	//file sync
-	bRet := service.FileSync(fileSyncObj, cb)
+	bRet := service.FileSync(fileSyncObj, cbForFile)
 	fmt.Println("file simpleSync result:", bRet)
 }
 
 //set callback for succeed
-func cb(subDir, fileName string) {
-	fmt.Println("cb, subDir:", subDir, ", fileName:", fileName)
+func cbForDir(subDir string, isRemove bool) {
+	fmt.Println("cbForDir, subDir:", subDir, ", isRemove:", isRemove)
+}
+
+func cbForFile(subDir, fileName string) {
+	fmt.Println("cbForFile, subDir:", subDir, ", fileName:", fileName)
 }

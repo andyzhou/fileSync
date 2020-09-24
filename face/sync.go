@@ -40,6 +40,15 @@ func (f *Sync) Quit() {
 	f.rpc.Stop()
 }
 
+//dir sync for batch node
+func (f *Sync) DirSync(
+				subDir string,
+				isRemove bool,
+				cb func(subDir string, isRemove bool),
+			) bool {
+	return f.manager.DirSync(subDir, isRemove, cb)
+}
+
 //file remove from batch node
 func (f *Sync) FileRemove(
 					subDir string,
