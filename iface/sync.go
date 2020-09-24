@@ -9,7 +9,7 @@ import fileSync "github.com/andyzhou/fileSync/pb"
  */
 
 type ISync interface {
-	DirSync(subDir string, isRemove bool, cb func(subDir string, isRemove bool)) bool
+	DirSync(subDir, newSubDir string, isRemove bool, cb func(subDir string, isRemove bool)) bool
 	FileRemove(subDir string, fileName string, cb func(subDir, fileName string)) bool
 	FileSync(req *fileSync.FileSyncReq, cb func(subDir, fileName string)) bool
 	FileDirectSync(orgFile string, destSubDir string, cb func(subDir, fileName string)) bool

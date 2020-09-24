@@ -44,6 +44,7 @@ func (f *Manager) Quit() {
 //dir sync for all clients
 func (f *Manager) DirSync(
 					subDir string,
+					newSubDir string,
 					isRemove bool,
 					cb func(subDir string, isRemove bool),
 				) bool {
@@ -62,7 +63,7 @@ func (f *Manager) DirSync(
 		if !ok {
 			return false
 		}
-		bRet := client.DirSync(subDir, isRemove)
+		bRet := client.DirSync(subDir, newSubDir, isRemove)
 		if !bRet {
 			return false
 		}

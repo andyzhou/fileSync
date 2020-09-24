@@ -43,10 +43,11 @@ func (f *Sync) Quit() {
 //dir sync for batch node
 func (f *Sync) DirSync(
 				subDir string,
+				newSubDir string,
 				isRemove bool,
 				cb func(subDir string, isRemove bool),
 			) bool {
-	return f.manager.DirSync(subDir, isRemove, cb)
+	return f.manager.DirSync(subDir, newSubDir, isRemove, cb)
 }
 
 //file remove from batch node

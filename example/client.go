@@ -96,7 +96,7 @@ func dirSync(service iface.ISync) {
 	subDir := "t2"
 	isRemove := true
 
-	bRet := service.DirSync(subDir, isRemove, cbForDir)
+	bRet := service.DirSync(subDir, "", isRemove, cbForDir)
 	fmt.Println("dir sync result:", bRet)
 }
 

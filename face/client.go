@@ -56,6 +56,7 @@ func (f *Client) Quit() {
 //call api
 func (f *Client) DirSync(
 					subDir string,
+					newSubDir string,
 					isRemove bool,
 				) (bRet bool) {
 	//basic check
@@ -76,6 +77,7 @@ func (f *Client) DirSync(
 	//init request
 	req := fileSync.DirSyncReq{
 		SubDir:subDir,
+		NewSubDir:newSubDir,
 		IsRemove:isRemove,
 	}
 

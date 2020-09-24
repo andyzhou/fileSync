@@ -12,7 +12,7 @@ type IManager interface {
 	Quit()
 
 	//for dir sync
-	DirSync(subDir string, isRemove bool, cb func(subDir string, isRemove bool)) bool
+	DirSync(subDir, newSubDir string, isRemove bool, cb func(subDir string, isRemove bool)) bool
 
 	//for file sync and remove
 	FileRemove(subDir, fileName string, cb func(subDir, fileName string)) bool

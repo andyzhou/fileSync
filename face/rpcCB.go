@@ -57,10 +57,23 @@ func (f *IRpcCB) DirSync(
 	subDirFull := fmt.Sprintf("%s/%s", f.rootPath, in.SubDir)
 	if in.IsRemove {
 		//remove
-		err = os.Remove(subDirFull)
+		_, err = os.Stat(subDirFull)
+		isExists := os.IsExist(err)
+		if isExists {
+			err = os.Remove(subDirFull)
+		}else{
+			err = nil
+		}
 	}else{
-		//add
-		err = os.Mkdir(subDirFull, 0777)
+		//add or rename
+		if in.NewSubDir != "" {
+			//rename
+			newDirFull := fmt.Sprintf("%s/%s", f.rootPath, in.NewSubDir)
+			err = os.Rename(subDirFull, newDirFull)
+		}else{
+			//add new
+			err = os.Mkdir(subDirFull, 0777)
+		}
 	}
 
 	if err != nil {
