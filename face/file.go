@@ -2,7 +2,7 @@ package face
 
 import (
 	"fmt"
-	fileSync "github.com/andyzhou/fileSync/pb"
+	fileSync "github.com/andyzhou/tinySync/pb"
 	"io/ioutil"
 	"log"
 	"os"

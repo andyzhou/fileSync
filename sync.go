@@ -1,8 +1,9 @@
-package face
+package tinySync
 
 import (
-	"github.com/andyzhou/fileSync/iface"
-	fileSync "github.com/andyzhou/fileSync/pb"
+	"github.com/andyzhou/tinySync/face"
+	"github.com/andyzhou/tinySync/iface"
+	fileSync "github.com/andyzhou/tinySync/pb"
 	"io/ioutil"
 	"log"
 	"strings"
@@ -28,10 +29,10 @@ func NewSync(
 		) *Sync {
 	//self init
 	this := &Sync{
-		manager:NewManager(),
+		manager: face.NewManager(),
 	}
 	//init rpc
-	this.rpc = NewRpc(port, rootPath)
+	this.rpc = face.NewRpc(port, rootPath)
 	return this
 }
 

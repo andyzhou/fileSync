@@ -1,7 +1,7 @@
 package face
 
 import (
-	fileSync "github.com/andyzhou/fileSync/pb"
+	fileSync "github.com/andyzhou/tinySync/pb"
 	"sync"
 )
 

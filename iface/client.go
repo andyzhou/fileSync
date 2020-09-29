@@ -1,6 +1,6 @@
 package iface
 
-import fileSync "github.com/andyzhou/fileSync/pb"
+import fileSync "github.com/andyzhou/tinySync/pb"
 
 /*
  * interface for rpc client

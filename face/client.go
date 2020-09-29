@@ -2,8 +2,8 @@ package face
 
 import (
 	"context"
-	"github.com/andyzhou/fileSync/define"
-	fileSync "github.com/andyzhou/fileSync/pb"
+	"github.com/andyzhou/tinySync/define"
+	fileSync "github.com/andyzhou/tinySync/pb"
 	"google.golang.org/grpc"
 	"log"
 	"sync"

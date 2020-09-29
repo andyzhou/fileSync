@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/fileSync.iml" filepath="$PROJECT_DIR$/.idea/fileSync.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tinySync.iml" filepath="$PROJECT_DIR$/.idea/tinySync.iml" />
     </modules>
   </component>
 </project>

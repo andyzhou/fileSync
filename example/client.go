@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/andyzhou/fileSync/face"
-	"github.com/andyzhou/fileSync/iface"
+	"github.com/andyzhou/tinySync"
+	"github.com/andyzhou/tinySync/iface"
 	"log"
 	"os"
 	"os/signal"
@@ -61,7 +61,7 @@ func main() {
 	}(&wg)
 
 	//init service
-	service := face.NewSync(RpcPort, RootPath)
+	service := tinySync.NewSync(RpcPort, RootPath)
 
 	//add node
 	rpcAddr := fmt.Sprintf("%s:%d", RpcHost, RpcPort)

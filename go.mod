@@ -1,4 +1,4 @@
-module github.com/andyzhou/fileSync
+module github.com/andyzhou/tinySync
 
 go 1.12
 

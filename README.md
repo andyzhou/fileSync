@@ -1,10 +1,10 @@
 # Introduce
 
-This is a local file sync lib.
+This is a local file simple sync lib.
 
-# Example
+# How to use?
 
-Please see the **example** sub dir.
+Please see client.go in the **example** sub dir.
 
 # proto generate
 protoc --go_out=plugins=grpc:. *.proto
