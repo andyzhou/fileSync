@@ -16,10 +16,11 @@ import (
 
 //face info
 type Rpc struct {
+	port int //rpc service port
 	addr string //rpc address
 	rootPath string
 	listener *net.Listener
-	service *grpc.Server //rpc service
+	service *grpc.Server
 }
 
 //construct
@@ -29,6 +30,7 @@ func NewRpc(
 		) *Rpc {
 	//self init
 	this := &Rpc{
+		port:port,
 		addr:fmt.Sprintf(":%d", port),
 		rootPath:rootPath,
 	}
@@ -78,6 +80,10 @@ func (f *Rpc) beginService() {
 
 //create rpc service
 func (f *Rpc) createService() {
+	if f.port <= 0 {
+		return
+	}
+
 	//listen tcp port
 	listen, err := net.Listen("tcp", f.addr)
 	if err != nil {

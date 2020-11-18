@@ -24,15 +24,17 @@ type Sync struct {
 
 //construct
 func NewSync(
-			port int,
+			port int, //rpc service port
 			rootPath string,
 		) *Sync {
 	//self init
 	this := &Sync{
 		manager: face.NewManager(),
 	}
-	//init rpc
-	this.rpc = face.NewRpc(port, rootPath)
+	if port > 0 {
+		//init rpc service
+		this.rpc = face.NewRpc(port, rootPath)
+	}
 	return this
 }
 
