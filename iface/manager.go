@@ -1,6 +1,6 @@
 package iface
 
-import fileSync "github.com/andyzhou/tinySync/pb"
+import pb "github.com/andyzhou/tinysync/pb"
 
 /*
  * interface for inter manager
@@ -16,7 +16,7 @@ type IManager interface {
 
 	//for file sync and remove
 	FileRemove(subDir, fileName string, cb func(subDir, fileName string)) bool
-	FileSync(req *fileSync.FileSyncReq, cb func(subDir, fileName string)) bool
+	FileSync(req *pb.FileSyncReq, cb func(subDir, fileName string)) bool
 
 	//for rpc node
 	RemoveNode(addr string) bool

@@ -2,7 +2,7 @@ package face
 
 import (
 	"fmt"
-	fileSync "github.com/andyzhou/tinySync/pb"
+	pb "github.com/andyzhou/tinysync/pb"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -95,7 +95,7 @@ func (f *Rpc) createService() {
 	f.service = grpc.NewServer()
 
 	//register call back
-	fileSync.RegisterFileSyncServiceServer(
+	pb.RegisterFileSyncServiceServer(
 			f.service,
 			NewIRpcCB(f.rootPath),
 		)

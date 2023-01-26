@@ -2,8 +2,8 @@ package face
 
 import (
 	"context"
-	"github.com/andyzhou/tinySync/define"
-	fileSync "github.com/andyzhou/tinySync/pb"
+	"github.com/andyzhou/tinysync/define"
+	pb "github.com/andyzhou/tinysync/pb"
 	"google.golang.org/grpc"
 	"log"
 	"sync"
@@ -20,10 +20,10 @@ import (
 type Client struct {
 	addr string
 	conn *grpc.ClientConn //rpc client connect
-	client *fileSync.FileSyncServiceClient //rpc client
-	dirSyncChan chan fileSync.DirSyncReq
-	fileSyncChan chan fileSync.FileSyncReq
-	fileRemoveChan chan fileSync.FileRemoveReq
+	client *pb.FileSyncServiceClient //rpc client
+	dirSyncChan chan pb.DirSyncReq
+	fileSyncChan chan pb.FileSyncReq
+	fileRemoveChan chan pb.FileRemoveReq
 	closeChan chan bool
 	sync.RWMutex
 }
@@ -33,9 +33,9 @@ func NewClient(addr string) *Client {
 	//self init
 	this := &Client{
 		addr:addr,
-		dirSyncChan:make(chan fileSync.DirSyncReq, define.ReqChanSize),
-		fileSyncChan:make(chan fileSync.FileSyncReq, define.ReqChanSize),
-		fileRemoveChan:make(chan fileSync.FileRemoveReq, define.ReqChanSize),
+		dirSyncChan:make(chan pb.DirSyncReq, define.ReqChanSize),
+		fileSyncChan:make(chan pb.FileSyncReq, define.ReqChanSize),
+		fileRemoveChan:make(chan pb.FileRemoveReq, define.ReqChanSize),
 		closeChan:make(chan bool, 1),
 	}
 
@@ -75,7 +75,7 @@ func (f *Client) DirSync(
 	}()
 
 	//init request
-	req := fileSync.DirSyncReq{
+	req := pb.DirSyncReq{
 		SubDir:subDir,
 		NewSubDir:newSubDir,
 		IsRemove:isRemove,
@@ -107,7 +107,7 @@ func (f *Client) FileRemove(
 	}()
 
 	//init request
-	req := fileSync.FileRemoveReq{
+	req := pb.FileRemoveReq{
 		SubDir:subDir,
 		FileName:fileName,
 	}
@@ -119,7 +119,7 @@ func (f *Client) FileRemove(
 }
 
 func (f *Client) FileSync(
-					req *fileSync.FileSyncReq,
+					req *pb.FileSyncReq,
 				) (bRet bool) {
 	//basic check
 	if req == nil || f.client == nil {
@@ -151,9 +151,9 @@ func (f *Client) FileSync(
 func (f *Client) runMainProcess() {
 	var (
 		ticker = time.NewTicker(time.Second * define.ClientCheckTicker)
-		syncReq fileSync.FileSyncReq
-		removeReq fileSync.FileRemoveReq
-		dirReq fileSync.DirSyncReq
+		syncReq pb.FileSyncReq
+		removeReq pb.FileRemoveReq
+		dirReq pb.DirSyncReq
 		isOk, needQuit bool
 	)
 
@@ -193,7 +193,7 @@ func (f *Client) runMainProcess() {
 
 //dir sync for rpc server
 func (f *Client) dirSyncProcess(
-					req *fileSync.DirSyncReq,
+					req *pb.DirSyncReq,
 				) bool {
 	if req == nil {
 		return false
@@ -215,7 +215,7 @@ func (f *Client) dirSyncProcess(
 
 //file remove from rpc server
 func (f *Client) fileRemoveProcess(
-					req *fileSync.FileRemoveReq,
+					req *pb.FileRemoveReq,
 				) bool {
 	if req == nil {
 		return false
@@ -237,7 +237,7 @@ func (f *Client) fileRemoveProcess(
 
 //file sync into rpc server
 func (f *Client) fileSyncProcess(
-					req *fileSync.FileSyncReq,
+					req *pb.FileSyncReq,
 				) bool {
 	if req == nil {
 		return false
@@ -293,7 +293,7 @@ func (f *Client) connServer() bool {
 	}
 
 	//init rpc client
-	client := fileSync.NewFileSyncServiceClient(conn)
+	client := pb.NewFileSyncServiceClient(conn)
 	if client == nil {
 		return false
 	}

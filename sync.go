@@ -1,9 +1,9 @@
-package tinySync
+package tinysync
 
 import (
-	"github.com/andyzhou/tinySync/face"
-	"github.com/andyzhou/tinySync/iface"
-	fileSync "github.com/andyzhou/tinySync/pb"
+	"github.com/andyzhou/tinysync/face"
+	"github.com/andyzhou/tinysync/iface"
+	pb "github.com/andyzhou/tinysync/pb"
 	"io/ioutil"
 	"log"
 	"strings"
@@ -88,7 +88,7 @@ func (f *Sync) FileDirectSync(
 //file sync into batch node
 //cb for success
 func (f *Sync) FileSync(
-					req *fileSync.FileSyncReq,
+					req *pb.FileSyncReq,
 					cb func(subDir, fileName string),
 				) bool {
 	return f.manager.FileSync(req, cb)
@@ -109,7 +109,7 @@ func (f *Sync) GetManager() iface.IManager {
 //read original file
 func (f *Sync) ReadFile(
 					filePath string,
-				) *fileSync.FileSyncReq {
+				) *pb.FileSyncReq {
 	//basic check
 	if filePath == "" {
 		return nil
@@ -135,7 +135,7 @@ func (f *Sync) ReadFile(
 	}
 
 	//format result
-	result := &fileSync.FileSyncReq{
+	result := &pb.FileSyncReq{
 		FileName:fileName,
 		FileSize:int64(len(byteData)),
 		FileContent:byteData,

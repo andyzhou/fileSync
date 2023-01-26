@@ -1,7 +1,7 @@
 package face
 
 import (
-	fileSync "github.com/andyzhou/tinySync/pb"
+	pb "github.com/andyzhou/tinysync/pb"
 	"sync"
 )
 
@@ -117,7 +117,7 @@ func (f *Manager) FileRemove(
 
 //file sync to all clients
 func (f *Manager) FileSync(
-					req *fileSync.FileSyncReq,
+					req *pb.FileSyncReq,
 					cb func(subDir, fileName string),
 				) bool {
 	//basic check

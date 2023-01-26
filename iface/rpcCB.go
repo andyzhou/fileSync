@@ -2,7 +2,7 @@ package iface
 
 import (
 	"context"
-	fileSync "github.com/andyzhou/tinySync/pb"
+	pb "github.com/andyzhou/tinysync/pb"
 )
 
 /*
@@ -14,15 +14,15 @@ import (
 type IRpcCB interface {
 	DirSync(
 		ctx context.Context,
-		in *fileSync.DirSyncReq,
-	) (*fileSync.SyncResp, error)
+		in *pb.DirSyncReq,
+	) (*pb.SyncResp, error)
 	FileRemove(
 		ctx context.Context,
-		in *fileSync.FileRemoveReq,
-	) (*fileSync.SyncResp, error)
+		in *pb.FileRemoveReq,
+	) (*pb.SyncResp, error)
 	FileSync(
 		ctx context.Context,
-		in *fileSync.FileSyncReq,
-	) (*fileSync.SyncResp, error)
+		in *pb.FileSyncReq,
+	) (*pb.SyncResp, error)
 }
 

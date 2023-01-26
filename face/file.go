@@ -2,7 +2,7 @@ package face
 
 import (
 	"fmt"
-	fileSync "github.com/andyzhou/tinySync/pb"
+	pb "github.com/andyzhou/tinysync/pb"
 	"io/ioutil"
 	"log"
 	"os"
@@ -53,7 +53,7 @@ func (f *File) RemoveFile(
 //save file into local
 func (f *File) SaveFile(
 				rootPath string,
-				req *fileSync.FileSyncReq,
+				req *pb.FileSyncReq,
 			) bool {
 	//basic check
 	if rootPath == "" || req == nil {

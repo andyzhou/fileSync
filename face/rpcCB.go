@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/andyzhou/tinySync/iface"
-	fileSync "github.com/andyzhou/tinySync/pb"
+	"github.com/andyzhou/tinysync/iface"
+	pb "github.com/andyzhou/tinysync/pb"
 	"log"
 	"os"
 	"strings"
@@ -42,8 +42,8 @@ func NewIRpcCB(
 //dir sync
 func (f *IRpcCB) DirSync(
 					ctx context.Context,
-					in *fileSync.DirSyncReq,
-				) (*fileSync.SyncResp, error) {
+					in *pb.DirSyncReq,
+				) (*pb.SyncResp, error) {
 	var (
 		err error
 		bRet bool
@@ -91,7 +91,7 @@ func (f *IRpcCB) DirSync(
 	}
 
 	//format result
-	result := &fileSync.SyncResp{
+	result := &pb.SyncResp{
 		Success:bRet,
 	}
 	return result, nil
@@ -100,8 +100,8 @@ func (f *IRpcCB) DirSync(
 //file remove
 func (f *IRpcCB) FileRemove(
 					ctx context.Context,
-					in *fileSync.FileRemoveReq,
-				) (*fileSync.SyncResp, error) {
+					in *pb.FileRemoveReq,
+				) (*pb.SyncResp, error) {
 	//check input value
 	if in == nil {
 		return nil, errors.New("invalid parameter")
@@ -111,7 +111,7 @@ func (f *IRpcCB) FileRemove(
 	f.file.RemoveFile(f.rootPath, in.SubDir, in.FileName)
 
 	//format result
-	result := &fileSync.SyncResp{
+	result := &pb.SyncResp{
 		Success:true,
 	}
 	return result, nil
@@ -120,8 +120,8 @@ func (f *IRpcCB) FileRemove(
 //file sync
 func (f *IRpcCB) FileSync(
 					ctx context.Context,
-					in *fileSync.FileSyncReq,
-				) (*fileSync.SyncResp, error) {
+					in *pb.FileSyncReq,
+				) (*pb.SyncResp, error) {
 	//check input value
 	if in == nil {
 		return nil, errors.New("invalid parameter")
@@ -131,7 +131,7 @@ func (f *IRpcCB) FileSync(
 	f.file.SaveFile(f.rootPath, in)
 
 	//format result
-	result := &fileSync.SyncResp{
+	result := &pb.SyncResp{
 		Success:true,
 	}
 	return result, nil

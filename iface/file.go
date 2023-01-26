@@ -1,6 +1,6 @@
 package iface
 
-import fileSync "github.com/andyzhou/tinySync/pb"
+import pb "github.com/andyzhou/tinysync/pb"
 
 /*
  * interface for file
@@ -16,6 +16,6 @@ type IFile interface {
 		) bool
 	SaveFile(
 			rootPath string,
-			req *fileSync.FileSyncReq,
+			req *pb.FileSyncReq,
 		) bool
 }
